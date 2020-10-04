@@ -21,8 +21,10 @@ class Teil2Control
     /** Switches */
     enum Sw
     {
-        BUTTON_1,    /** & */
-        BUTTON_2,    /** & */
+        BUTTON_1,    /**< ARC1 */
+        BUTTON_2,    /**< ACR2 */
+        BUTTON_3,    /**< Toggle1 */
+        BUTTON_4,    /**< Toggle2 */
         BUTTON_LAST, /** &  */
     };
 
@@ -104,11 +106,19 @@ class Teil2Control
     DaisySeed     seed;        /**<# */
     AnalogControl knob1,       /**< & */
         knob2,                 /**< & */
+        knob3,                 /**< & */
+        knob4,                 /**< & */
+        knob5,                 /**< & */
+        knob6,                 /**< & */
+        knob7,                 /**< & */
+        knob8,                 /**< & */
         *knobs[KNOB_LAST];     /**< & */
     Switch button1,            /**< & */
         button2,               /**< & */
+        button3,               /**< & */
+        button4,               /**< & */
         *buttons[BUTTON_LAST]; /**< & */
-    RgbLed led1,               /**< & */
+    Led led1,                   /**< & */
         led2;                  /**< & */
 
   private:

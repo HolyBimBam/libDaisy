@@ -124,21 +124,18 @@ void Teil2Control::DebounceControls()
 }
 
 void Teil2Control::ClearLeds()
-{
-    // Using Color
-    // Color c;
-    // c.Init(Color::PresetColor::OFF);
-    // led1.SetColor(c);
-    // led2.SetColor(c);
-    // Without
-    // led1.Set(0.0f, 0.0f, 0.0f);
-    // led2.Set(0.0f, 0.0f, 0.0f);
+{ /*
+    for(size_t i = 0; i < FOOTSWITCH_LED_LAST; i++)
+    {
+        SetLed(static_cast<FootswitchLed>(i), 0.0f);
+    }
+    */
 }
 
 void Teil2Control::UpdateLeds()
 {
-    led1.Update();
-    led2.Update();
+    //led1.Update();
+    //led2.Update();
 }
 
 void Teil2Control::InitButtons()

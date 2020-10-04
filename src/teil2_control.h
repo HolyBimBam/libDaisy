@@ -8,12 +8,11 @@ namespace daisy
 {
 /**
     @brief Class that handles initializing all of the hardware specific to the Teil2 Control Board.
-    Based on Electro Smith Daisy Pod and Patch.\n 
+    Based on Electro Smith Daisy Pod and Patch Code.\n 
     Helper funtions are also in place to provide easy access to built-in controls and peripherals.
     
     @author HolyBimBam
     @date October 2020
-    @ingroup boards
 */
 class Teil2Control
 {

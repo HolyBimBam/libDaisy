@@ -98,6 +98,7 @@ void Teil2Control::StartAdc()
 
 void Teil2Control::UpdateAnalogControls()
 {
+    /*
     knob1.Process();
     knob2.Process();
     knob3.Process();
@@ -106,13 +107,17 @@ void Teil2Control::UpdateAnalogControls()
     knob6.Process();
     knob7.Process();
     knob8.Process();
+    */
+    for(int i=0; i<KNOB_LAST; i++){
+        knobs[i].Process();
+    }
 }
 
 float Teil2Control::GetKnobValue(Knob k)
 {
     size_t idx;
     idx = k < KNOB_LAST ? k : KNOB_1;
-    return knobs[idx]->Value();
+    return knobs[idx].Value();
 }
 
 void Teil2Control::DebounceControls()
@@ -194,7 +199,7 @@ void Teil2Control::InitKnobs()
 
 
     // Initialize AnalogControls, with flip set to true
-    for(size_t i = 0; i < CTRL_LAST; i++)
+    for(size_t i = 0; i < KNOB_LAST; i++)
     {
         knobs[i].Init(seed.adc.GetPtr(i), callback_rate_, true);
     }

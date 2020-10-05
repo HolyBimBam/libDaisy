@@ -20,10 +20,10 @@ class Teil2Control
     /** Switches */
     enum Sw
     {
-        BUTTON_1,    /**< ARC1 */
-        BUTTON_2,    /**< ACR2 */
-        BUTTON_3,    /**< Toggle1 */
-        BUTTON_4,    /**< Toggle2 */
+        BUTTON_1,    /**< Toggle1 */
+        BUTTON_2,    /**< Toggle2 */
+        BUTTON_3,    /**< Arc1 */
+        BUTTON_4,    /**< Arc2 */
         BUTTON_LAST, /** &  */
     };
 

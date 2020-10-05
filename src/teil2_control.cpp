@@ -98,16 +98,6 @@ void Teil2Control::StartAdc()
 
 void Teil2Control::UpdateAnalogControls()
 {
-    /*
-    knob1.Process();
-    knob2.Process();
-    knob3.Process();
-    knob4.Process();
-    knob5.Process();
-    knob6.Process();
-    knob7.Process();
-    knob8.Process();
-    */
     for(int i=0; i<KNOB_LAST; i++){
         knobs[i].Process();
     }
@@ -129,29 +119,22 @@ void Teil2Control::DebounceControls()
 }
 
 void Teil2Control::ClearLeds()
-{ /*
-    for(size_t i = 0; i < FOOTSWITCH_LED_LAST; i++)
-    {
-        SetLed(static_cast<FootswitchLed>(i), 0.0f);
-    }
-    */
+{ 
+    led1.Set(0.0f);
+    led2.Set(0.0f);
 }
 
 void Teil2Control::UpdateLeds()
 {
-    //led1.Update();
-    //led2.Update();
+    led1.Update();
+    led2.Update();
 }
 
 void Teil2Control::InitButtons()
 {
-    // button1
     button1.Init(seed.GetPin(SW_1_PIN), callback_rate_);
-    // button2
     button2.Init(seed.GetPin(SW_2_PIN), callback_rate_);
-    // button3
     button3.Init(seed.GetPin(SW_3_PIN), callback_rate_);
-    // button4
     button4.Init(seed.GetPin(SW_4_PIN), callback_rate_);
     buttons[BUTTON_1] = &button1;
     buttons[BUTTON_2] = &button2;
@@ -163,20 +146,15 @@ void Teil2Control::InitLeds()
 {
     // LEDs are just going to be on/off for now.
     // TODO: Add PWM support
-    // dsy_gpio_pin rpin, gpin, bpin;
+     dsy_gpio_pin led1Pin, led2Pin;
 
-    //rpin = seed.GetPin(LED_1_R_PIN);
-    //gpin = seed.GetPin(LED_1_G_PIN);
-    //bpin = seed.GetPin(LED_1_B_PIN);
-    //led1.Init(rpin, gpin, bpin, true);
+    led1Pin = seed.GetPin(LED_1_PIN);
+    led2Pin = seed.GetPin(LED_2_PIN);
+    led1.Init(led1Pin, true);
+    led2.Init(led2Pin, true);
 
-    //rpin = seed.GetPin(LED_2_R_PIN);
-    //gpin = seed.GetPin(LED_2_G_PIN);
-    //bpin = seed.GetPin(LED_2_B_PIN);
-    //led2.Init(rpin, gpin, bpin, true);
-
-    //ClearLeds();
-    //UpdateLeds();
+    ClearLeds();
+    UpdateLeds();
 }
 
 void Teil2Control::InitKnobs()
@@ -203,21 +181,5 @@ void Teil2Control::InitKnobs()
     {
         knobs[i].Init(seed.adc.GetPtr(i), callback_rate_, true);
     }
-/*
 
-    // Make an array of pointers to the knobs.
-    knobs[KNOB_1] = &knob1;
-    knobs[KNOB_2] = &knob2;
-    knobs[KNOB_3] = &knob3;
-    knobs[KNOB_4] = &knob4;
-    knobs[KNOB_5] = &knob5;
-    knobs[KNOB_6] = &knob6;
-    knobs[KNOB_7] = &knob7;
-    knobs[KNOB_8] = &knob8;
-    
-    for(int i = 0; i < KNOB_LAST; i++)
-    {
-        knobs[i]->Init(seed.adc.GetPtr(i), callback_rate_);
-    }
-    */
 }

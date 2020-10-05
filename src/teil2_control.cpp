@@ -132,10 +132,17 @@ void Teil2Control::UpdateLeds()
 
 void Teil2Control::InitButtons()
 {
+    /*
+    button1.Init(seed.GetPin(SW_1_PIN), callback_rate_, TYPE_TOGGLE, POLARITY_NORMAL, PULL_UP);
+    button2.Init(seed.GetPin(SW_2_PIN), callback_rate_, TYPE_TOGGLE, POLARITY_NORMAL, PULL_UP);
+    button3.Init(seed.GetPin(SW_3_PIN), callback_rate_, TYPE_MOMENTARY, POLARITY_NORMAL, PULL_UP);
+    button4.Init(seed.GetPin(SW_4_PIN), callback_rate_, TYPE_MOMENTARY, POLARITY_NORMAL, PULL_UP);
+*/
     button1.Init(seed.GetPin(SW_1_PIN), callback_rate_);
     button2.Init(seed.GetPin(SW_2_PIN), callback_rate_);
     button3.Init(seed.GetPin(SW_3_PIN), callback_rate_);
     button4.Init(seed.GetPin(SW_4_PIN), callback_rate_);
+
     buttons[BUTTON_1] = &button1;
     buttons[BUTTON_2] = &button2;
     buttons[BUTTON_3] = &button3;
@@ -144,9 +151,7 @@ void Teil2Control::InitButtons()
 
 void Teil2Control::InitLeds()
 {
-    // LEDs are just going to be on/off for now.
-    // TODO: Add PWM support
-     dsy_gpio_pin led1Pin, led2Pin;
+    dsy_gpio_pin led1Pin, led2Pin;
 
     led1Pin = seed.GetPin(LED_1_PIN);
     led2Pin = seed.GetPin(LED_2_PIN);

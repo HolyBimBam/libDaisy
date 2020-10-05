@@ -103,15 +103,7 @@ class Teil2Control
 
     /** Public Members */
     DaisySeed     seed;        /**<# */
-    AnalogControl knob1,       /**< & */
-        knob2,                 /**< & */
-        knob3,                 /**< & */
-        knob4,                 /**< & */
-        knob5,                 /**< & */
-        knob6,                 /**< & */
-        knob7,                 /**< & */
-        knob8,                 /**< & */
-        *knobs[KNOB_LAST];     /**< & */
+    AnalogControl knobs[KNOB_LAST];     /**< & */
     Switch button1,            /**< & */
         button2,               /**< & */
         button3,               /**< & */

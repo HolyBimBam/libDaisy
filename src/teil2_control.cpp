@@ -191,6 +191,15 @@ void Teil2Control::InitKnobs()
     // Initialize with the knob init struct w/ 2 members
     // Set Oversampling to 32x
     seed.adc.Init(knob_init, KNOB_LAST);
+
+
+    // Initialize AnalogControls, with flip set to true
+    for(size_t i = 0; i < CTRL_LAST; i++)
+    {
+        knobs[i].Init(seed.adc.GetPtr(i), callback_rate_, true);
+    }
+/*
+
     // Make an array of pointers to the knobs.
     knobs[KNOB_1] = &knob1;
     knobs[KNOB_2] = &knob2;
@@ -205,4 +214,5 @@ void Teil2Control::InitKnobs()
     {
         knobs[i]->Init(seed.adc.GetPtr(i), callback_rate_);
     }
+    */
 }
